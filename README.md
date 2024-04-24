@@ -1,2 +1,2 @@
 # EVNgin
-Custom game/application engine built on SDL2
+Custom game/application engine built in C using SDL2
