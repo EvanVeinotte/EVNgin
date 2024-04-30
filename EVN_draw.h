@@ -39,7 +39,7 @@ int EVN_drawRect();
 
 EVN_Sprite* EVN_createSprite(int x, int y, const char * filename);
 
-int EVN_addSpriteToRender();
+//int EVN_addSpriteToRender();
 
 int EVN_createRectToRender(int x,int y,int w,int h,int r,int g,int b,int fill);
 

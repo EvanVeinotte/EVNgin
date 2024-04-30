@@ -1,6 +1,7 @@
 #include "EVNgin.h"
 #include "EVN_window.h"
 #include <SDL2/SDL.h>
+#include <SDL2/SDL_image.h>
 
 int EVN_init(){
 	if(SDL_Init(SDL_INIT_VIDEO)){
@@ -8,7 +9,9 @@ int EVN_init(){
 		return 0;
 	}
 
-	EVN_initDraw(4096,256);
+	IMG_Init(IMG_INIT_PNG);
+
+	EVN_initDraw(16,256);
 }
 
 int EVN_quit(){

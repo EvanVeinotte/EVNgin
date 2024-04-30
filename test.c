@@ -19,6 +19,9 @@ int main(int argc, char ** argv){
 	
 	EVN_createRectToRender(32,32,16,16,255,0,255,1);
 
+	EVN_Sprite * ms = EVN_createSprite(128,256, "man.png");
+	printf("%d\n", ms -> y);
+
 	int quit = 0;
 	while (!quit){
 		
@@ -26,6 +29,15 @@ int main(int argc, char ** argv){
 		while(SDL_PollEvent(&event)){
 			if(event.type == SDL_QUIT){
 				quit = 1;
+			}
+			if(event.type == SDL_KEYDOWN){
+				switch(event.key.keysym.sym){
+					case SDLK_q:
+						quit = 1;
+						break;
+					default:
+						break;	
+				}
 			}
 		}
 		
