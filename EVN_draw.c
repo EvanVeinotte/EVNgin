@@ -55,8 +55,8 @@ int EVN_createRectToRender(int x, int y, int w, int h, int r, int g, int b, int 
 
 int EVN_destroyDrawMemory(){
 	//sprites
-	free(EVN_sprites_to_render);
+	free(sprite_ptr_size);
 
 	//render rects
-	free(EVN_rects_to_render);
+	free(rect_ptr_size);
 }
