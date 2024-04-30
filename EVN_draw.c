@@ -6,10 +6,12 @@ EVN_Sprite * EVN_sprites_to_render;
 int EVN_num_of_sprites = 0;
 EVN_RenderRect * EVN_rects_to_render;
 int EVN_num_of_rects = 0;
-int sprite_ptr_size;
-int rect_ptr_size;
+int EVN_sprite_ptr_size;
+int EVN_rect_ptr_size;
 
 int EVN_initDraw(int sprite_ptr_size, int rect_ptr_size){
+	EVN_sprite_ptr_size = sprite_ptr_size;
+	EVN_rect_ptr_size = rect_ptr_size;
 	EVN_sprites_to_render = malloc(sprite_ptr_size * sizeof(EVN_Sprite));
 	EVN_rects_to_render = malloc(rect_ptr_size * sizeof(EVN_RenderRect));
 }
@@ -44,7 +46,7 @@ int EVN_drawFrame(){
 
 int EVN_createRectToRender(int x, int y, int w, int h, int r, int g, int b, int fill){
 	EVN_num_of_rects += 1;
-	if(EVN_num_of_rects >= rect_ptr_size){
+	if(EVN_num_of_rects >= EVN_rect_ptr_size){
 		EVN_num_of_rects = 0;
 		printf("WARNING!!! Went over max rect amount.");
 	}
@@ -55,8 +57,8 @@ int EVN_createRectToRender(int x, int y, int w, int h, int r, int g, int b, int 
 
 int EVN_destroyDrawMemory(){
 	//sprites
-	free(sprite_ptr_size);
+	free(EVN_sprites_to_render);
 
 	//render rects
-	free(rect_ptr_size);
+	free(EVN_rects_to_render);
 }

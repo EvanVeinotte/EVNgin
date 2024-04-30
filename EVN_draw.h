@@ -1,3 +1,5 @@
+#include <SDL2/SDL.h>
+
 #ifndef EVN_DRAWSOME
 #define EVN_DRAWSOME
 typedef struct EVN_RenderRect{
@@ -11,11 +13,14 @@ typedef struct EVN_RenderRect{
 typedef struct EVN_Sprite{
 	int x,y;
 	int w,h;
-	EVN_Rect render_zone_rect;
+	int scale_x, scale_y;
+	SDL_Texture * texture;
+	int visible;
 	//animation section
 	int sprite_sheet; //1 if true
 	int frame_w;
 	int frame_h;
+	int frame_index;
 }EVN_Sprite;
 
 
@@ -23,14 +28,16 @@ extern EVN_Sprite * EVN_sprites_to_render;
 extern int EVN_num_of_sprites;
 extern EVN_RenderRect * EVN_rects_to_render;
 extern int EVN_num_of_rects;
-extern int sprite_ptr_size;
-extern int rect_ptr_size;
+extern int EVN_sprite_ptr_size;
+extern int EVN_rect_ptr_size;
 
 int EVN_initDraw(int sprite_ptr_size, int rect_ptr_size);
 
 int EVN_drawFrame();
 
 int EVN_drawRect();
+
+EVN_Sprite* EVN_createSprite(int x, int y, const char * filename);
 
 int EVN_addSpriteToRender();
 
