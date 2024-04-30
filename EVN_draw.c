@@ -28,10 +28,11 @@ int EVN_drawFrame(){
 	//render sprites
 	for (int i=0; i < EVN_num_of_sprites; i++){
 		if(EVN_sprites_to_render[i].visible){
-			SDL_Rect sprite_rect = {EVN_sprites_to_render[i].x,
-							EVN_sprites_to_render[i].y,
-							EVN_sprites_to_render[i].w,
-							EVN_sprites_to_render[i].h};
+			EVN_Sprite cur_sprite = EVN_sprites_to_render[i];
+			SDL_Rect sprite_rect = {cur_sprite.x,
+						cur_sprite.y,
+						cur_sprite.w * cur_sprite.scale_x,
+						cur_sprite.h * cur_sprite.scale_y};
 			SDL_RenderCopy(renderer, EVN_sprites_to_render[i].texture, NULL, &sprite_rect);
 		}
 	}

@@ -20,6 +20,8 @@ int main(int argc, char ** argv){
 	EVN_createRectToRender(32,32,16,16,255,0,255,1);
 
 	EVN_Sprite * ms = EVN_createSprite(128,256, "man.png");
+	ms -> scale_x = 10;
+	ms -> scale_y = 10;
 	printf("%d\n", ms -> y);
 
 	int quit = 0;
