@@ -7,9 +7,12 @@ int EVN_init(){
 		printf("Could not init SDL");
 		return 0;
 	}
+
+	EVN_initDraw(4096,256);
 }
 
 int EVN_quit(){
+	EVN_destroyDrawMemory();
 	EVN_quitWindow();
 	SDL_Quit();
 }

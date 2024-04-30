@@ -12,7 +12,7 @@ extern short int EVN_WINDOW_H;
 extern SDL_Window * window;
 extern SDL_Renderer * renderer;
 
-int EVN_createWindowAndRenderer(char * window_title, short int window_w, short int window_h,
+int EVN_createWindowAndRenderer(const char * window_title, short int window_w, short int window_h,
 				int fullscreen);
 
 int EVN_quitWindow();
